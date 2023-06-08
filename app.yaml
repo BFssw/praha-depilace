@@ -37,3 +37,26 @@ spec:
     port: 80
     targetPort: 80
   type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ name: depilace-v-praze-ingress
+ annotations:
+  cert-manager.io/cluster-issuer: lets-encrypt
+spec:
+ tls:
+ - hosts:
+   - depilace-v-praze.cz
+   secretName: depilace-v-praze-ingress-tls
+ rules:
+ - host: depilace-v-praze.cz
+   http:
+     paths:
+     - backend:
+         service:
+           name: depilace-v-praze
+           port:
+             number: 80
+       path: /
+       pathType: Prefix
