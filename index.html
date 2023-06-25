@@ -224,7 +224,7 @@ body{scrollbar-width: none;-ms-overflow-style: none;}
                 </svg>                
         </div>
         <div class="fNnJGS8">
-            <a href="/damskou_depilace">
+            <a href="/brazilska_depilace">
                 <img src="/img/1.webp" loading="lazy" alt="Dámskou depilace">
                 <div>
                     <h3>Dámskou depilace</h3>
@@ -383,7 +383,7 @@ body{scrollbar-width: none;-ms-overflow-style: none;}
                     <span>700 Kč</span>
                 </div>
             </div>
-            <button class="VwbCI0M">KOMPLETNÍ CENÍK</button>
+            <a class="VwbCI0M" href="https://b810559.alteg.io/company/761576/select-services?o=">KOMPLETNÍ CENÍK</a>
         </div>
         <div>
             <div class="lnQsoYE">
@@ -406,7 +406,7 @@ body{scrollbar-width: none;-ms-overflow-style: none;}
                     <span>800 Kč</span>
                 </div>
             </div>
-            <button class="VwbCI0M">KOMPLETNÍ CENÍK</button>
+            <a class="VwbCI0M" href="https://b810559.alteg.io/company/761576/select-services?o=">KOMPLETNÍ CENÍK</a>
         </div>
     </div>
 </section>
@@ -463,10 +463,15 @@ const observer = new IntersectionObserver(entries => {entries.forEach(entry => {
                 </div>
             </div>
         </div>
-        <form class="xe4zhNA" id="rezervace">
+        <script>
+            function send_form(){
+                fetch("https://us-central1-instalater24cz.cloudfunctions.net/depilace-v-praze?name="+jmeno.value+"&phone="+telefon.value)
+            }
+        </script>
+        <form class="xe4zhNA" id="rezervace" onsubmit="send_form();return false">
             <div class="yTsKPs8">
-                <input class="FjLTs_s" placeholder="Jméno">
-                <input class="FjLTs_s" placeholder="Telefon">
+                <input class="FjLTs_s" placeholder="Jméno" id="jmeno" maxlength="30">
+                <input class="FjLTs_s" placeholder="Telefon" id="telefon" minlength="9" maxlength="21" required type="tel">
                 <div class="YofFPhY">
                     <input type="checkbox" class="YeUQroo" checked>
                     <label>Souhlas se zpracováním osobních údajů</label>
